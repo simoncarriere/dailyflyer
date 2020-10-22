@@ -1,0 +1,16 @@
+{
+  "name": "dailyflyer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build-css": "tailwindcss build src/main.css -o public/main.css"
+  },
+  "keywords": [],
+  "author": "Simon Carriere",
+  "license": "ISC",
+  "dependencies": {
+    "heroicons": "^0.4.2",
+    "tailwindcss": "^1.9.5"
+  }
+}
