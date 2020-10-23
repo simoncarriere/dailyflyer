@@ -7,188 +7,314 @@
     <title>Daily Flyer</title>
   </head>
   <body class="font-body">
-
     <!-- Header-->
-    <header class="bg-blue-500 px-6 pb-6">
-      <div class="text-gray-100 flex flex-col text-center py-12">
-        <h2 class="text-white tracking-wider font-bold uppercase py-3 ">DailyFlyer</h1>
+    <header
+      class="bg-gradient-to-r from-blue-800 via-blue-600 to-blue-400 px-6 pb-6"
+    >
+      <div class="text-gray-100 flex flex-col py-12">
+        <div class="pb-2 mb-5 border-b border-blue-300 flex justify-between">
+          <h2 class="text-white tracking-wider font-bold uppercase">
+            DailyFlyer
+          </h2>
+          <a
+            class="twitter-share-button"
+            href="https://twitter.com/intent/tweet?text=Check%20out%20Daily%20Flyer%20by%20@simoncarriere%20😍%20http://dailyflyer.co"
+            data-size="large"
+          >
+            Share on Twitter</a
+          >
+        </div>
 
-        <h1 class=" text-3xl">Get notified when your favorite items go on sale</h1>
-        <!-- <h2 class=" font-light py-3">We’ll notify you so you’ll never miss another sale</h1> -->
-        
+        <h1 class="text-3xl pt-12">
+          Get notified when your favorite items go on sale
+        </h1>
 
-        <form class="py-6">
-          <input class="w-64 bg-white px-3 py-3 mr-4 text-s font-light rounded text-black" type="email" placeholder="Your Email..." />
-          <button class="bg-blue-400 text-white px-5 py-3 text-s rounded hover:bg-blue-300"><div>Get Your Reports</div></button>
+        <!-- User Signup -->
+        <form class="py-6" id="email-form">
+          <input
+            id="new-user"
+            class="w-64 bg-white px-3 py-3 mr-4 text-s font-light rounded text-black"
+            type="email"
+            placeholder="Your Email..."
+          />
+          <button
+            class="bg-gray-200 text-white px-5 py-3 text-s rounded hover:bg-opacity-50 bg-opacity-25"
+          >
+            <div>Get Your Reports</div>
+          </button>
         </form>
-
       </div>
     </header>
 
-
     <!-- Main -->
-    <main class="py-8 flex flex-col ">
-      
-      <!-- Add & Search -->
-      <div class="flex wrap items-center place-content-around py-12">
-
-        <form> <!-- Add -->
-          <label for="add">Track a new item : </label>
-          <input id="add" class="ml-4 p-2 w-64 border-b bg-gray-200  focus:bg-white focus:border-blue-400" type="url" placeholder="Paste Amazon URL..." />
-          <button class="text-s p-2 font-light bg-gray-400 rounded hover:bg-gray-300">Add Item</button>
-        </form>
-
-        <div class="flex items-center"> <!-- Search -->
-          <input id="add" class="ml-4 p-2 w-64 border-b bg-transparent  focus:bg-white focus:border-blue-400" type="url" placeholder="Search" />
-          <svg class="h-6 w-6 text-gray-500"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </div>
-
+    <main class="">
+      <!-- Search -->
+      <div class="flex items-center py-4 shadow">
+        <svg
+          onClick="myFunction()"
+          class="h-6 w-6 text-gray-500 mx-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          />
+        </svg>
+        <input
+          class="w-full p-2 text-gray-400 focus:text-gray-800 text-base outline-none"
+          id="search"
+          type="text"
+          placeholder="Search"
+        />
       </div>
+      <!-- Add Item -->
+      <div class="flex py-12 px-6 justify-between">
+        <form class="flex items-center" id="items">
+          <label for="add" class="pr-2">Track a new item : </label>
 
+          <div class="flex border-b items-center">
+            <input
+              id="add-item"
+              class="w-64 bg-white text-xs p-2"
+              type="url"
+              placeholder="Paste Amazon URL..."
+            />
+
+            <a href="#" class="flex text-gray-500 text-xs">
+              <svg
+                class="h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                />
+              </svg>
+            </a>
+          </div>
+        </form>
+      </div>
       <!-- Cards -->
-      <div class="flex justify-center">
-        <div class="flex flex-col overflow-hidden">
-            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+      <div class="flex">
+        <div class="flex flex-col overflow-hidden px-6">
+          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div
+              class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
+            >
+              <div
+                class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+              >
+                <table class="min-w-full divide-y divide-gray-200">
+                  <!-- Table Titles -->
+                  <thead>
+                    <tr>
+                      <th
+                        class="px-6 py-3 bg-gray-50 text-left text-s font-normal text-gray-500 tracking-wider"
+                      >
+                        Product Name
+                      </th>
+                      <th
+                        class="px-6 py-3 bg-gray-50 text-left text-s font-normal text-gray-500 tracking-wider"
+                      >
+                        Price
+                      </th>
+                      <th
+                        class="px-6 py-3 bg-gray-50 text-left text-s font-normal text-gray-500 tracking-wider"
+                      >
+                        Change
+                      </th>
+                      <th
+                        class="px-6 py-3 bg-gray-50 text-left text-s font-normal text-gray-500 tracking-wider"
+                      >
+                        Graph
+                      </th>
+                      <th class="px-6 py-3 bg-gray-50"></th>
+                    </tr>
+                  </thead>
 
-                  <table class="min-w-full divide-y divide-gray-200">
-                    <!-- Table Titles -->
-                    <thead>
-                      <tr>
-                        <th class="px-6 py-3 bg-gray-50 text-left text-s font-normal text-gray-500  tracking-wider">
-                          Product Name
-                        </th>
-                        <th class="px-6 py-3 bg-gray-50 text-left text-s font-normal text-gray-500  tracking-wider">
-                          Price
-                        </th>
-                        <th class="px-6 py-3 bg-gray-50 text-left text-s font-normal text-gray-500  tracking-wider">
-                          Change
-                        </th>
-                        <th class="px-6 py-3 bg-gray-50 text-left text-s font-normal text-gray-500  tracking-wider">
-                          Graph
-                        </th>
-                        <th class="px-6 py-3 bg-gray-50"></th>
-                      </tr>
-                    </thead>
-
-                    <!-- Table Row Starts-->
-                    <tbody class="bg-white divide-y divide-gray-200">
-                      <tr>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                          <div class="flex items-center">
-                            <div class="flex-shrink-0 h-10 w-10">
-                              <img class="h-10 w-10 rounded" src="img/product-1.jpg" alt="">
-                            </div>
-                            <div class="ml-4">
-                              <div class="text-sm font-medium text-gray-900">
-                                De'Longhi EC685M Dedica Deluxe Espresso 
-                              </div>
+                  <!-- Table Row Starts-->
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="flex items-center">
+                          <div class="flex-shrink-0 h-10 w-10">
+                            <img
+                              class="h-10 w-10 rounded"
+                              src="img/product-1.jpg"
+                              alt=""
+                            />
+                          </div>
+                          <div class="ml-4">
+                            <div
+                              class="text-sm font-medium text-gray-900 searchable"
+                            >
+                              De'Longhi EC685M Dedica Deluxe Espresso
                             </div>
                           </div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                          <div class="text-sm leading-5 text-gray-900">$800.00</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            + 8%
-                          </span>
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                          ...
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                          <a href="#" class="text-indigo-600 hover:text-indigo-900 pr-4">Inspect</a>
-                          <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
-                        </td>
-                      </tr>
-
-                      <!-- More rows... -->
-                    </tbody>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                      <tr>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                          <div class="flex items-center">
-                            <div class="flex-shrink-0 h-10 w-10">
-                              <img class="h-10 w-10 rounded" src="img/product-2.jpg" alt="">
-                            </div>
-                            <div class="ml-4">
-                              <div class="text-sm font-medium text-gray-900">
-                                De'Longhi EC685M Dedica Deluxe Espresso 
-                              </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="text-sm leading-5 text-gray-900">
+                          $800.00
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                        >
+                          + 8%
+                        </span>
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"
+                      >
+                        ...
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium"
+                      >
+                        <a
+                          href="#"
+                          class="text-indigo-600 hover:text-blue-500 pr-4"
+                          >Inspect</a
+                        >
+                        <a
+                          href="#"
+                          class="text-indigo-600 hover:text-indigo-900"
+                          >Delete</a
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="flex items-center">
+                          <div class="flex-shrink-0 h-10 w-10">
+                            <img
+                              class="h-10 w-10 rounded"
+                              src="img/product-2.jpg"
+                              alt=""
+                            />
+                          </div>
+                          <div class="ml-4">
+                            <div
+                              class="text-sm font-medium text-gray-900 searchable"
+                            >
+                              computer
                             </div>
                           </div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                          <div class="text-sm leading-5 text-gray-900">$800.00</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            + 8%
-                          </span>
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                          ...
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                          <a href="#" class="text-indigo-600 hover:text-indigo-900 pr-4">Inspect</a>
-                          <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
-                        </td>
-                      </tr>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="text-sm leading-5 text-gray-900">
+                          $800.00
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                        >
+                          + 8%
+                        </span>
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"
+                      >
+                        ...
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium"
+                      >
+                        <a
+                          href="#"
+                          class="text-indigo-600 hover:text-indigo-900 pr-4"
+                          >Inspect</a
+                        >
+                        <a
+                          href="#"
+                          class="text-indigo-600 hover:text-indigo-900"
+                          >Delete</a
+                        >
+                      </td>
+                    </tr>
 
-                      <!-- More rows... -->
-                    </tbody>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                      <tr>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                          <div class="flex items-center">
-                            <div class="flex-shrink-0 h-10 w-10">
-                              <img class="h-10 w-10 rounded" src="img/product-3.jpg" alt="">
-                            </div>
-                            <div class="ml-4">
-                              <div class="text-sm font-medium text-gray-900">
-                                De'Longhi EC685M Dedica Deluxe Espresso 
-                              </div>
+                    <!-- More rows... -->
+                  </tbody>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="flex items-center">
+                          <div class="flex-shrink-0 h-10 w-10">
+                            <img
+                              class="h-10 w-10 rounded"
+                              src="img/product-3.jpg"
+                              alt=""
+                            />
+                          </div>
+                          <div class="ml-4">
+                            <div
+                              class="text-sm font-medium text-gray-900 searchable"
+                            >
+                              T-Shirt
                             </div>
                           </div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                          <div class="text-sm leading-5 text-gray-900">$800.00</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            + 8%
-                          </span>
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                          ...
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                          <a href="#" class="text-indigo-600 hover:text-indigo-900 pr-4">Inspect</a>
-                          <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
-                        </td>
-                      </tr>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="text-sm leading-5 text-gray-900">
+                          $800.00
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                        >
+                          + 8%
+                        </span>
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"
+                      >
+                        ...
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium"
+                      >
+                        <a
+                          href="#"
+                          class="text-indigo-600 hover:text-indigo-900 pr-4"
+                          >Inspect</a
+                        >
+                        <a
+                          href="#"
+                          class="text-indigo-600 hover:text-indigo-900"
+                          >Delete</a
+                        >
+                      </td>
+                    </tr>
 
-                      <!-- More rows... -->
-                    </tbody>
- 
-                  </table>
-                </div>
+                    <!-- More rows... -->
+                  </tbody>
+                </table>
               </div>
             </div>
+          </div>
         </div>
-
       </div>
+    </main>
 
-    </main> 
-
-   
-
-
-<!-- 
+    <!--     
     <div class="lg:flex lg:items-center lg:justify-between">
       <div class="flex-1 min-w-0">
         <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
@@ -279,13 +405,38 @@
       </div>
     </div> -->
 
+    <!-- Footer fixed inset-x-0 bottom-0 -->
+    <footer class="flex items-center justify-center bg-gray-100 h-24 mt-12">
+      <div id="github"></div>
+      <h3 class="pr-5 text-gray-600">
+        Developped by
+        <a href="https://github.com/simoncarriere" class="text-gray-900"
+          >@simoncarriere</a
+        >
+      </h3>
+    </footer>
 
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-firestore.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAT5BIUY436Mr6hRN6TMLq5znLnxE1uXzI",
+        authDomain: "dailyflyer-e6afa.firebaseapp.com",
+        databaseURL: "https://dailyflyer-e6afa.firebaseio.com",
+        projectId: "dailyflyer-e6afa",
+        storageBucket: "dailyflyer-e6afa.appspot.com",
+        messagingSenderId: "1055137573845",
+        appId: "1:1055137573845:web:a4c06ffce279c296fc6b5c",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
 
-    <!-- Footer Start
-    <footer class="fixed inset-x-0 bottom-0 mt-2 p-2 text-center bg-gray-800" >
-      <h3 class="text-gray-200 text-s">
-        DailyFlyer is made by <a href="https://github.com/simoncarriere">Simon</a>
-       </h3> 
-    </footer> -->
+      const db = firebase.firestore();
+    </script>
+
+    <script src="promises.js"></script>
+    <script src="dom.js"></script>
   </body>
 </html>
