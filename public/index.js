@@ -1,9 +1,6 @@
+// Handle Email Signup and save to firebase
 const email = document.querySelector("#email-form");
 const name = document.querySelector("#new-user");
-const addItem = document.querySelector("#add-item");
-const items = document.querySelector("#items");
-
-// Handle Email Signup and save to firebase
 email.addEventListener("submit", (e) => {
   e.preventDefault();
   if (name.value) {
@@ -20,13 +17,19 @@ email.addEventListener("submit", (e) => {
   }
 });
 
-// Handle new Item form
+// Handle New Item
+const items = document.querySelector("#item-form");
+const addItem = document.querySelector("#add-item");
 items.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const price = parseInt(input.value);
+
   if (addItem.value) {
     const item = {
-      item: addItem.value,
+      url: addItem.value,
+      prices: price,
+      date: new Date().toString(),
     };
     db.collection("items") // Select the collection
       .add(item) // Firebase Method .add and select item const
@@ -42,19 +45,28 @@ items.addEventListener("submit", (e) => {
 // Handle Search
 const searchBar = document.querySelector("#search");
 searchBar.addEventListener("keyup", function (e) {
-  //
   let searchTerm = e.target.value.toLowerCase();
 
   // Look for Item
   let items = [...document.querySelectorAll("div.searchable")];
 
   items.forEach(function (item) {
-    console.log(typeof item.textContent);
-    console.log(typeof searchTerm);
+    const title = item.textContent;
 
-    if (item.textContent == searchTerm) {
-      console.log(item.textContent);
+    if (item.textContent.toLowerCase().indexOf(searchTerm) != -1) {
+      item.parentNode.parentNode.parentNode.parentNode.style.display = "block";
     } else {
+      item.parentNode.parentNode.parentNode.parentNode.style.display = "none";
     }
   });
 });
+
+// Retreive items
+db.collection("items")
+  .get()
+  .then((res) => {
+    var data = [];
+    res.docs.forEach((doc) => {
+      console.log(doc.data());
+    });
+  });

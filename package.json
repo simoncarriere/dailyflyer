@@ -4,13 +4,18 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build-css": "tailwindcss build src/main.css -o public/main.css"
+    "build-css": "tailwindcss build src/main.css -o public/main.css",
+    "serve": ""
   },
   "keywords": [],
   "author": "Simon Carriere",
   "license": "ISC",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "heroicons": "^0.4.2",
+    "node": "^15.0.1",
+    "node-fetch": "^2.6.1",
+    "puppeteer": "^5.3.1",
     "tailwindcss": "^1.9.5"
   }
 }
